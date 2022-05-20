@@ -4,9 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 !(Images/Unit_13_Project_Andrew_Curtin (3).jpg)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the hosts file may be used to install only certain pieces of it, such as Filebeat.
-
-!(Images/Elk_Yaml.txt)
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Elk.Yml file may be used to install only certain pieces of it, such as Filebeat.
 
 This document contains the following details:
 - Description of the Topology
