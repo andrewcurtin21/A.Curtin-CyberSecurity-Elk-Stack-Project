@@ -4,9 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![Network Diagram](Images/NetworkDiagram.jpg)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Elk.Yml file may be used to install only certain pieces of it, such as Filebeat.
-
-![Elk Yaml](Images/Elk_Yaml.txt)
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat_yaml file may be used to install only certain pieces of it, such as Filebeat.
 
 This document contains the following details:
 - Description of the Topology
@@ -21,53 +19,44 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly efficient, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box? Load Balancers protect the availability portion of the CIA Triad. One advantage of a Jump Box is that it limits unauthorized access to other servers on a network by only allow authorized users to log into the Jump Box in order to gain access to the network. Those not allowed to access the Jump Box can not access the network and its various servers.
+Load balancing ensures that the application will be highly available, in addition to restricting access with a Jump Box to the network.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log data and system performance.
-- What does Filebeat watch for?
-	- Filebeat monitors and collects the data of the system.
-- What does Metricbeat record?_
-- Metricbeat utilizes metrics such as load, memory, and uptime to                                          monitor servers and the various systems/services they run.
-
+	
 The configuration details of each machine may be found below.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
+| Jump Box | Gateway  |  10.0.0.1  |     Linux        |
 | Web-1    |  Host    |  10.1.0.5  |     Linux        |
 | Web-2    |  Host    |  10.1.0.6  |     Linux        |
 | Web-3    |  Host    |  10.1.0.7  |     Linux        |
-|Elk Server| Sys Log  |  10.0.0.4  |     Linux     |
+|Elk Server| Sys Log  |  10.0.0.4  |     Linux        | 
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box Provisioner can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- Whitelisted IP’s: Public IP
+Only the Jump Box Provisioner can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: Personal Public IP
 
-Machines within the network can only be accessed by gaining access to the Jump Box Provisioner first.
-- Which machine did you allow to access your ELK VM? What was its IP address?_I allowed access to the ELK VM from my personal computer. IP Address is Public IP
+Machines within the network can only be accessed by gaining access to the Jump Box Provisioner first. The Jump Box Provisioner’s IP address is 20.70.170.163
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes                 | Public IP        |
+| Jump Box | Yes                 | Personal IP          |
 |  Web-1   | No                  |   10.1.0.4           |
 |  Web-2   | No                  |   10.1.0.4           |
 |  Web-3   | No                  |   10.1.0.4           |
-|ElkServer | No                  |  Public IP        |
+|ElkServer | Yes                 |  Personal IP         |
 
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- Automating configurations with Ansible is helpful because it could save vast amounts of time if one had to manually configure hundreds of machines. It can be automated to handle configuring many machines with one command.
+Automating configurations with Ansible is helpful because it could save vast amounts of time if one had to manually configure hundreds of machines. It can be automated to handle configuring many machines with one command.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Install docker.io
 - Install python3-pip
 - Install docker module
@@ -86,11 +75,7 @@ This ELK server is configured to monitor the following machines:
 - Web-2   10.1.0.6
 - Web-3   10.1.0.7
 
-We have installed the following Beats on these machines:
-- Installed Metricbeat and Filebeat on these machines.
-
-These Beats allow us to collect the following information from each machine:
-- _Filebeat collects log events while Metricbeat collects metrics of the systems and servers it monitors.
+We have installed Filbeat and Metricbeat on these machines. Filebeat collects log events while Metricbeat collects metrics of the systems and servers it monitors.
 
 
 ### Using the Playbook
