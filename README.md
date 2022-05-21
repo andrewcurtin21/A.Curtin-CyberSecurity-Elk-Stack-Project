@@ -45,20 +45,20 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jump Box Provisioner can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- Whitelisted IP’s: 98.219.24.249
+- Whitelisted IP’s: Public IP
 
 Machines within the network can only be accessed by gaining access to the Jump Box Provisioner first.
-- Which machine did you allow to access your ELK VM? What was its IP address?_I allowed access to the ELK VM from my personal computer. IP Address is 98.219.24.249. 
+- Which machine did you allow to access your ELK VM? What was its IP address?_I allowed access to the ELK VM from my personal computer. IP Address is Public IP
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes                 | 98.219.24.249        |
+| Jump Box | Yes                 | Public IP        |
 |  Web-1   | No                  |   10.1.0.4           |
 |  Web-2   | No                  |   10.1.0.4           |
 |  Web-3   | No                  |   10.1.0.4           |
-|ElkServer | No                  | 98.219.24.249        |
+|ElkServer | No                  |  Public IP        |
 
 
 ### Elk Configuration
@@ -82,7 +82,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- Web-1 10.1.0.5
+- Web-1   10.1.0.5
 - Web-2   10.1.0.6
 - Web-3   10.1.0.7
 
